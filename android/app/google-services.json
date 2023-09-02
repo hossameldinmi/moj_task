@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "325282180541",
+    "project_id": "moj-ksa-task",
+    "storage_bucket": "moj-ksa-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325282180541:android:8e3cc771cbf4397d4676d4",
+        "android_client_info": {
+          "package_name": "com.example.moj_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325282180541-64jmd881mgojeevoulm38tuhrgk9d2lf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBloM6MCgWDIvzD33hWDUgTT0lDNrqNP_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325282180541-64jmd881mgojeevoulm38tuhrgk9d2lf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "325282180541-tq50pt22krhap4s6sfm147hmo8abpb34.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mojTask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

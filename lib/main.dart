@@ -5,9 +5,12 @@ import 'package:moj_task/src/utils/analytics_util.dart';
 import 'package:moj_task/src/utils/service_locator.dart';
 import 'package:moj_task/src/utils/user_actions_aggregator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   ServiceLocator.instance.registerLazySingleton<ToastHelper>(() => ToastHelperImpl());
-  ServiceLocator.instance.registerLazySingleton<AnalyticsUtil>(() => AnalyticsUtilImpl());
+  final firebaseAnalyticsUtil = FirebaseAnalyticsUtilImpl();
+  await firebaseAnalyticsUtil.init();
+  ServiceLocator.instance.registerLazySingleton<AnalyticsUtil>(() => firebaseAnalyticsUtil);
   ServiceLocator.instance.registerLazySingleton<UserActionsAggregator>(() => UserActionsAggregatorImpl(
         ServiceLocator.instance(),
         ServiceLocator.instance(),

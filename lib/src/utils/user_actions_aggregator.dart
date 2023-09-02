@@ -18,15 +18,15 @@ class UserActionsAggregatorImpl implements UserActionsAggregator {
   @override
   void initAnalytics() {
     onAngryClickPerformed.listen((clickList) {
-      _toastHelper.show("Angry Click");
-      final click = clickList.last;
+      _toastHelper.show("You 're Angry!");
+      final lastClick = clickList.last;
       _analyicsUtil.logEvent(
-        'angry click',
+        'angry_click',
         {
-          'time': click.time.toIso8601String(),
+          'time': lastClick.time.toIso8601String(),
           'count': clickList.length,
-          'widget': click.widgetName,
-          'offset': click.offset.toString(),
+          'widget': lastClick.widgetName,
+          'offset': lastClick.offset.toString(),
         },
       );
     });
