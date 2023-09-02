@@ -1,31 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:moj_task/src/page1.dart';
+import 'package:moj_task/src/my_app.dart';
+import 'package:moj_task/src/ui/helpers/toast_helper.dart';
+import 'package:moj_task/src/utils/analytics_util.dart';
+import 'package:moj_task/src/utils/service_locator.dart';
+import 'package:moj_task/src/utils/user_actions_aggregator.dart';
 
 void main() {
+  ServiceLocator.instance.registerLazySingleton<ToastHelper>(() => ToastHelperImpl());
+  ServiceLocator.instance.registerLazySingleton<AnalyticsUtil>(() => AnalyticsUtilImpl());
+  ServiceLocator.instance.registerLazySingleton<UserActionsAggregator>(() => UserActionsAggregatorImpl(
+        ServiceLocator.instance(),
+        ServiceLocator.instance(),
+      ));
+  ServiceLocator.instance<UserActionsAggregator>().initAnalytics();
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const Page1(title: 'Flutter Demo Home Page'),
-    );
-  }
 }
