@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moj_task/src/ui/images.dart';
 import 'package:moj_task/src/ui/views/click_detector.dart';
 
 class Page2 extends StatefulWidget {
@@ -28,8 +29,7 @@ class _Page2State extends State<Page2> {
                 'You have pushed the button this many times:',
               ),
               Text(_counter.toString()),
-              Image.network(
-                  'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1161.jpg'),
+              Image.asset(AppImages.image1),
               TextButton(
                 onPressed: () {
                   setState(() {
